@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+    stages {
+        stage('Install') { steps { sh 'python3 -m pip install -r requirements.txt' } }
+        stage('Test') { steps { sh 'python3 -m pytest test_app.py' } }
+        stage('Deploy') {
+            steps {
+                sh 'pkill -f "python3 app.py" || true'
+                sh 'nohup python3 app.py > app.log 2>&1 &'
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Finder</title>
+    <style>
+        body { font-family: Arial; padding: 40px; background: #f4f6f8; }
+        .card { background: white; padding: 25px; border-radius: 8px; max-width: 500px; margin: 0 auto; }
+        input, button { width: 100%; padding: 10px; margin: 8px 0; box-sizing: border-box; }
+        .recipe { background: #e9ecef; padding: 10px; margin-top: 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Recipe Finder</h2>
+        <form method="POST" action="/">
+            <input type="text" name="query" placeholder="Search recipe or ingredient...">
+            <button type="submit">Search Live</button>
+        </form>
+        {% for r in recipes %}
+        <div class="recipe">
+            <h3>{{ r.title }}</h3>
+            <p><strong>Ingredients:</strong> {{ r.ingredients }}</p>
+        </div>
+        {% else %}
+        <p>No recipes found.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

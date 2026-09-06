@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Python Sticky Notes</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px; }
+        .form-container { max-width: 500px; margin: 0 auto 30px auto; text-align: center; }
+        input[type="text"] { width: 70%; padding: 10px; font-size: 16px; }
+        button { padding: 10px 15px; font-size: 16px; background-color: #28a745; color: white; border: none; cursor: pointer; }
+        .notes-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .sticky-note { 
+            background-color: #ffeb3b; 
+            width: 200px; 
+            height: 180px; 
+            padding: 15px; 
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.15); 
+            border-bottom-right-radius: 20px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Sticky Notes Web App</h2>
+        <form method="POST" action="/">
+            <input type="text" name="content" placeholder="Write a sticky note..." required>
+            <button type="submit">Add Note</button>
+        </form>
+    </div>
+
+    <div class="notes-grid">
+        {% for note in notes %}
+        <div class="sticky-note">
+            <p><strong>#{{ note.id }}</strong></p>
+            <p>{{ note.content }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

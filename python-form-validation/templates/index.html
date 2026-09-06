@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup Validation</title>
+    <style>
+        body { font-family: Arial; padding: 40px; background: #f4f6f8; }
+        .card { background: white; padding: 25px; border-radius: 8px; max-width: 400px; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        input, button { width: 100%; padding: 10px; margin: 8px 0; box-sizing: border-box; }
+        .err { color: red; font-size: 14px; margin: 2px 0; }
+        .success { color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Signup Form</h2>
+        {% if success == True %}<div class="success">Signup Successful!</div>{% endif %}
+        {% for err in errors %}<div class="err">• {{ err }}</div>{% endfor %}
+        <form method="POST" action="/">
+            <input type="text" name="username" placeholder="Username (3+ chars)" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="password" name="password" placeholder="Password (6+ chars)" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

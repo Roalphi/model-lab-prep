@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar Picker</title>
+    <style>
+        body { font-family: Arial; padding: 40px; background: #f4f6f8; }
+        .card { background: white; padding: 25px; border-radius: 8px; max-width: 350px; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        input, button { width: 100%; padding: 10px; margin: 8px 0; box-sizing: border-box; }
+        .res { background: #007bff; color: white; padding: 10px; text-align: center; border-radius: 4px; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Select a Date</h2>
+        <form method="POST" action="/">
+            <input type="date" name="selected_date" required>
+            <button type="submit">Display Date</button>
+        </form>
+        {% if date_result %}
+        <div class="res">
+            <strong>Selected:</strong><br>{{ date_result }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

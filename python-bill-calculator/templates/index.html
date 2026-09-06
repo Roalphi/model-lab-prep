@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bill Calculator</title>
+    <style>
+        body { font-family: Arial; padding: 40px; background: #f4f6f8; }
+        .card { background: white; padding: 25px; border-radius: 8px; max-width: 380px; margin: 0 auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        input, button { width: 100%; padding: 10px; margin: 8px 0; box-sizing: border-box; }
+        button { background: #28a745; color: white; border: none; font-weight: bold; cursor: pointer; border-radius: 4px; }
+        .res { background: #e9ecef; padding: 12px; border-radius: 4px; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Online Shopping Bill</h2>
+        <form method="POST" action="/">
+            <input type="number" step="any" name="price" placeholder="Item Price ($)" required>
+            <input type="number" name="quantity" placeholder="Quantity" required>
+            <button type="submit">Calculate Bill</button>
+        </form>
+        {% if total %}
+        <div class="res">
+            <h3>Total Bill: ${{ total }}</h3>
+            <p>{{ breakdown }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
